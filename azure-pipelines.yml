@@ -20,6 +20,14 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
     npm install
     npm run build
   displayName: 'npm install and build'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
